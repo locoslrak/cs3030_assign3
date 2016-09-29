@@ -8,7 +8,7 @@
 #        AUTHOR: Karl Marble, karlmarble@mail.weber.edu
 #  ORGANIZATION: 
 #       CREATED: 09/29/2016 12:17
-#      REVISION:  0.2
+#      REVISION:  0.3
 #===============================================================================
 
 #set -o nounset                              # Treat unset variables as an error
@@ -19,6 +19,20 @@ function reqHelp {
 	echo "All three arguments are required."
 }
 
+if [ "$1" == "--help" ] || 
+	[ "$1" != "-s" ] || 
+	[ "$3" != "-a" ] ||
+	[ "$5" != "-i" ];then
+	reqHelp
+fi
 
+while getopts ":s:a:i:" opt; do
+	case $opt in
+		s) sedsrc=$OPTARG;;
+		a) awksrc=$OPTARG;;
+		i) iFile=$OPTARG;;
+		\?) reqHelp ;;
+	esac
+done
 
 exit 0
