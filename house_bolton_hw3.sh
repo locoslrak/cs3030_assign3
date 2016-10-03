@@ -16,7 +16,8 @@
 
 function reqHelp {
 	echo "Usage is house_bolton.sh [-s sedsrc] [-a awksrc] [-i inputFile]"
-	echo "All three arguments are required."
+	echo "All three aRguments are required."
+	exit 1
 }
 
 if [ "$1" == "--help" ] || 
@@ -34,5 +35,7 @@ while getopts ":s:a:i:" opt; do
 		\?) reqHelp ;;
 	esac
 done
+
+#sed -f $sedsrc $iFile | awk -f $awksrc > "new$iFile"
 
 exit 0
