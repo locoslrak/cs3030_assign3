@@ -1,18 +1,13 @@
- 
-#===============================================================================
-#
-#         USAGE: ./bolton.hw3.sed 
-# 
-#   DESCRIPTION: 
-# 
-#        AUTHOR: Morgan Dahl, morgandahl@mail.weber.edu
-#  ORGANIZATION: 
-#       CREATED: 09/29/2016 12:15
-#      REVISION:  ---
-#===============================================================================
+#Make sure you "\" your special characters
+#group your matches with \( \)
+# repetition with \{ \}
+# takes subfields from records and changes them accordingly
+s/\([0-9]\{1,2\}\)[/]\([0-9]\{1,2\}\)[/]\([0-9]\{2,4\}\)/\3.\2.\1/g
 
-#set -o nounset                              # Treat unset variables as an error
+# first field is grouped 0-9 one or two places followed by a - or / or .
 
-s'|,\(\w\+\)/\(\w\+\)/\(\w\+\),\(\w\+\)/\(\w\+\)/\(\w\+\)|,\1.\2.\3,\4.\5.\6|' $6
+# second field is grouped 0-9 one or two places followed by a - or / or .
 
+# third field is grouped 0-9 two or four places
 
+# 'g' at end is to make it global
