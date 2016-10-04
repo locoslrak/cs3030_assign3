@@ -36,6 +36,6 @@ while getopts ":s:a:i:" opt; do
 	esac
 done
 
-#sed -f $sedsrc $iFile | awk -f $awksrc > "new$iFile"
+sed -f $sedsrc $iFile | awk -f $awksrc > "new$iFile"
 
 exit 0
